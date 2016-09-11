@@ -18,13 +18,13 @@ class DefaultController
 
     function homeAction()
     {
-        echo "Главная";
+        $contactUrl = $this->router->url('page_contacts');
+        include "../app/views/home.html.php";
     }
 
     function contactAction()
     {
-        echo "Контакты";
         $homeHref = $this->router->url('page_home');
-        echo " <a href='{$homeHref}'>На главную</a>";
+        include "../app/views/contacts.html.php";
     }
 }
