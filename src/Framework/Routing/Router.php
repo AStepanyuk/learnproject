@@ -20,10 +20,18 @@ class Router
     public function start()
     {
 
-        $p = requestVar("p", "");
+        //$p = requestVar("p", "");
+        $uri = ltrim ($_SERVER["REQUEST_URI"],'/');
+        $questPos = strpos($uri, '?');
+        if (false !== $questPos){
+            $uri = substr($uri,0,$questPos);
+        }
+        $uri = urldecode($uri);
+
+
 
         foreach ($this->routes as $name => $route) {
-            if ($route['url'] == $p) {
+            if ($route['url'] == $uri) {
                 $matchedRoute = $route;
                 $this->currentRoute = $route;
                 $this->currentRouteName = $name;
@@ -77,14 +85,20 @@ class Router
         $this->routes = $routes;
     }
 
-    function url($routeName)
+    function url($routeName, $params=[])
     {
         if (!isset($this->routes[$routeName])) {
             throw new Exception('can not generate URL for route "' . $routeName . '". Route not exist');
         }
         $route = $this->routes[$routeName];
 
-        return '/?p=' . $route['url'];
+        $paramString = http_build_query($params);
+
+        $url =  '/' . $route['url'];
+        if ($paramString){
+            $url= $url . '?'.$paramString;
+        }
+        return $url;
 
     }
 
