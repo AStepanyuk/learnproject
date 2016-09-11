@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+}
+
+.menu a{
+    border: 1px solid black;
+    border-radius: 3 px;
+    display: inline-block;
+    padding:5px;
+    margin: 2px;
+    text-decoration: none;
+}
+.menu a:hover{
+    background: #e2ffa4;
+}
+.menu a.current{
+    background: #ffe86c;
+}

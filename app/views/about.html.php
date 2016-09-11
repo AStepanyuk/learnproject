@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <h1>Контакты</h1>
+    <h1>О нас</h1>
     <?php include "partials/menu.html.php" ?>
 
 </body>

@@ -14,6 +14,8 @@ class Router
 {
 
     protected $routes;
+    protected $currentRouteName;
+    protected $currentRoute;
 
     public function start()
     {
@@ -23,6 +25,8 @@ class Router
         foreach ($this->routes as $name => $route) {
             if ($route['url'] == $p) {
                 $matchedRoute = $route;
+                $this->currentRoute = $route;
+                $this->currentRouteName = $name;
                 break;
             }
         }
@@ -80,7 +84,12 @@ class Router
         }
         $route = $this->routes[$routeName];
 
-        return '/?p='.$route['url'];
+        return '/?p=' . $route['url'];
 
+    }
+
+    function getCurrentRouteName()
+    {
+        return $this->currentRouteName;
     }
 }

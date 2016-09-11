@@ -5,13 +5,17 @@ return [
         'action' => 'default:home',
         'url' => ''
     ],
+    'page_about' => [
+        'action' => 'default:about',
+        'url' => 'proNas'
+    ],
     'page_info' => [
         'action' => 'system:info',
         'url' => 'info'
     ],
     'page_contacts' => [
         'action' => 'default:contact',
-        'url' => 'contacts'
+        'url' => 'contacts/info'
     ],
     'page_404' => [
         'action' => 'system:error404',
