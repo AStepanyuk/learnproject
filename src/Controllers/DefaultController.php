@@ -8,7 +8,7 @@
 
 namespace Controllers;
 
-
+//дефолтный контроллер с подключатором запрашиваемой страницы (action)
 class DefaultController
 {
     function setRouter($router)

@@ -4,8 +4,7 @@
 <?php include "partials/_head.html.php" ?>
 <body>
 <?php include "partials/menu.html.php" ?>
-
-    <h1>Портфолио</h1>
+<h1>Портфолио</h1>
 
 </body>
 </html>

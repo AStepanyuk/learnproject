@@ -1,5 +1,6 @@
 <?php
 
+//массив страниц с парой значений: url + подключатор запрашиваемой страницы (action)
 return [
     'page_home' => [
         'action' => 'default:home',

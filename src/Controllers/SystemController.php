@@ -8,7 +8,7 @@
 
 namespace Controllers;
 
-
+//системный контроллер с результатом запрашиваемой страницы
 class SystemController
 {
     function setRouter($router)

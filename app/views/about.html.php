@@ -4,8 +4,7 @@
 <?php include "partials/_head.html.php" ?>
 <body>
 <?php include "partials/menu.html.php" ?>
-
-    <h1>О нас</h1>
+<h1>О нас</h1>
 
 </body>
 </html>

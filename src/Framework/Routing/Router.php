@@ -10,25 +10,23 @@ namespace Framework\Routing;
 
 use \Exception;
 
+
 class Router
 {
-
+//объявление защищенных свойств класса
     protected $routes;
     protected $currentRouteName;
     protected $currentRoute;
 
+//обработка запрса из адресной строки
     public function start()
     {
-
-        //$p = requestVar("p", "");
         $uri = ltrim ($_SERVER["REQUEST_URI"],'/');
         $questPos = strpos($uri, '?');
         if (false !== $questPos){
             $uri = substr($uri,0,$questPos);
         }
         $uri = urldecode($uri);
-
-
 
         foreach ($this->routes as $name => $route) {
             if ($route['url'] == $uri) {
@@ -44,12 +42,11 @@ class Router
         } else {
             $this->runAction('system:error404');
         }
-
     }
 
+//определение подключатора запрашиваемой страницы (action)
     function runAction($actionString)
     {
-
         $parts = explode(':', $actionString);
         if (count($parts) != 2) {
             throw new Exception('actionString parse error "' . $actionString . '"');
@@ -69,6 +66,7 @@ class Router
         return $controller->$actionMethod();
     }
 
+//определение контроллера
     function getController($shortName)
     {
         $className = '\\Controllers\\' . ucfirst($shortName) . 'Controller';
@@ -80,11 +78,13 @@ class Router
         return null;
     }
 
+//прием массива страниц с парой значений: url + подключатор запрашиваемой страницы (action)
     public function setConfig($routes)
     {
         $this->routes = $routes;
     }
 
+//определение и проверка url
     function url($routeName, $params=[])
     {
         if (!isset($this->routes[$routeName])) {
@@ -102,6 +102,7 @@ class Router
 
     }
 
+//определение текущей страницы
     function getCurrentRouteName()
     {
         return $this->currentRouteName;

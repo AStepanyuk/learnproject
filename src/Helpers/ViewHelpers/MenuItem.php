@@ -11,12 +11,14 @@ namespace Helpers\ViewHelpers;
 
 class MenuItem
 {
+//объявление защищенных свойств класса
     protected $caption;
     protected $href;
     protected $target;
     protected $icon;
     protected $class;
 
+//гетеры и сетеры свойств и их атрибутов
     /**
      * @return mixed
      */
@@ -71,7 +73,8 @@ class MenuItem
         return $this;
     }
 
-    public function setBlank(){
+    public function setBlank()
+    {
         $this->setTarget("_blank");
     }
 
@@ -126,9 +129,7 @@ class MenuItem
         if (!empty($this->$attr) || $canBeEmpty){
             return $attr . "=\"" . $value . "\"";
         }
-
     }
-
 
     public function getHrefAttribute()
     {

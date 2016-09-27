@@ -1,5 +1,6 @@
 
 <?php
+//блок head страниц
 if (!isset($main_title)){
     $main_title = "Мой сайт";
 }

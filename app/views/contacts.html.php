@@ -3,9 +3,8 @@
 <?php $main_title = "Контакты"; ?>
 <?php include "partials/_head.html.php" ?>
 <body>
-
-    <?php include "partials/menu.html.php" ?>
-    <h1>Контакты</h1>
+<?php include "partials/menu.html.php" ?>
+<h1>Контакты</h1>
 
 </body>
 </html>

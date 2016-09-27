@@ -1,7 +1,8 @@
 <?php
-
+//текущая страница
 $current_rout_name = $this->router->getCurrentRouteName();
 
+//массив страниц меню с их параметрами
 $menu = [
     "page_home" => ['caption' => "Главная", 'icon'=> 'home'],
     "page_contacts" => ['caption' => "Контакты",],
@@ -14,7 +15,9 @@ $menu = [
 
 <div class="menu">
     <?php foreach ($menu as $route_name => $menuItemConfig) { ?>
-        <?php include "menu_item.html.php" ?>
+        <?php
+//подключение сконфигурированной страницы меню
+        include "menu_item.html.php" ?>
     <?php } ?>
 
 </div>
