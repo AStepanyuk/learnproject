@@ -18,7 +18,6 @@ class DefaultController
 
     function homeAction()
     {
-
         include "../app/views/home.html.php";
     }
 
@@ -32,4 +31,8 @@ class DefaultController
         include "../app/views/about.html.php";
     }
 
+    function portfolioAction()
+    {
+        include "../app/views/portfolio.html.php";
+    }
 }

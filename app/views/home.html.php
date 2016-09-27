@@ -9,7 +9,7 @@
 
 <h1>Main page</h1>
 
-<a href="<?php echo $this->router->url("page_about", ['from'=> 'main']) ?>">Тут вы можетепочитать о нас</a>
+<a href="<?php echo $this->router->url("page_about", ['from'=> 'main']) ?>">Тут вы можете почитать о нас</a>
 
 </body>
 </html>

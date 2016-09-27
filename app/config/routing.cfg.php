@@ -9,6 +9,10 @@ return [
         'action' => 'default:about',
         'url' => 'proNas'
     ],
+    'page_portfolio' => [
+        'action' => 'default:portfolio',
+        'url' => 'portfolio'
+    ],
     'page_info' => [
         'action' => 'system:info',
         'url' => 'info'
