@@ -16,7 +16,7 @@ $menu = [
 <div class="menu">
     <?php foreach ($menu as $route_name => $menuItemConfig) { ?>
         <?php
-//подключение сконфигурированной страницы меню
+//построение пунктов (кнопок) меню
         include "menu_item.html.php" ?>
     <?php } ?>
 

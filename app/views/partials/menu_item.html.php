@@ -1,15 +1,15 @@
 <?php
 
-//оипределение параметра текущейстраницы
+//определяем признака текущейстраницы
 $class = ($route_name == $current_rout_name) ? "current" : '';
 
-//определение заданости параметра иконки
+//получение иконки если она задана
 $icon = (isset ($menuItemConfig['icon'])) ? $menuItemConfig['icon'] : false;
 
-//создание класса ПункМеню
+//создание объекта ПункМеню
 $menuItem = new \Helpers\ViewHelpers\MenuItem();
 
-//задание своствам класса соответствующих параметров
+//установка объекту соответствующие свойства
 $menuItem->setCaption($menuItemConfig ['caption'])
     ->setHref($this->router->url($route_name))
     ->setIcon($icon)
@@ -19,7 +19,7 @@ $menuItem->setCaption($menuItemConfig ['caption'])
 if (!empty ($menuItemConfig['blank'])){
     $menuItem->setBlank();
 }
-//посе выводим атрибуты необходимые для ссылки
+//полсе выводим ссылку необходимые атрибутами
 ?>
 
 <a

@@ -19,6 +19,10 @@ class Router
     protected $currentRoute;
 
 //обработка запрса из адресной строки
+
+    /**
+     *
+     */
     public function start()
     {
         $uri = ltrim ($_SERVER["REQUEST_URI"],'/');
@@ -45,6 +49,12 @@ class Router
     }
 
 //определение подключатора запрашиваемой страницы (action)
+
+    /**
+     * @param $actionString string короткий синтаксис для экшина в формате "controller:action"
+     * @return mixed результат выполнение экшина
+     * @throws Exception выбрасывает исключениеесли неправильный формат экшина или экшн не существует
+     */
     function runAction($actionString)
     {
         $parts = explode(':', $actionString);
