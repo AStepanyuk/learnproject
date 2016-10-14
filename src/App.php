@@ -21,7 +21,7 @@ class App
 
             $dbConfigs = include '../app/config/database.cfg.php';
             $db->setConfig($dbConfigs);
-            $db->connect("learn_project");
+            $db->connect();
             self::$database = $db;
         }
         return self::$database;

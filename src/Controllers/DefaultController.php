@@ -10,6 +10,8 @@ namespace Controllers;
 
 //дефолтный контроллер с подключатором запрашиваемой страницы (action)
 
+use Model\PortfolioStorage;
+
 class DefaultController
 {
     function setRouter($router)
@@ -34,6 +36,15 @@ class DefaultController
 
     function portfolioAction()
     {
+        $portfolioStorage = new PortfolioStorage();
+
+        $portfolios = $portfolioStorage->getAllVisible();
+
+        include "../app/views/portfolio.html.php";
+    }
+
+    function oldPortfolioAction()
+    {
         $db = \App::getDatabase();
         $db->connect("learn_project");
 
@@ -48,13 +59,8 @@ class DefaultController
     function portfolioShowAction()
     {
         $id = requestVar('id');
-
-        $db = \App::getDatabase();
-
-        $sql = "SELECT * FROM `portfolio_items` where `id` = $id";
-        $result = $db->query($sql);
-
-        $portfolio = $db->getOneRow($result);
+        $portfolioStorage = new PortfolioStorage();
+        $portfolio = $portfolioStorage->getById($id);
 
 
         include "../app/views/portfolio_show.html.php";

@@ -28,18 +28,6 @@ class Database
         $this->config = array_merge($config);
     }
 
-    static $instanse = null;
-
-    /**
-     * @return Database
-     */
-    static function getInstanse()
-    {
-        if (null === self::$instanse){
-            self::$instanse = new Database();
-        }
-        return self::$instanse;
-    }
 
     function connect()
     {
