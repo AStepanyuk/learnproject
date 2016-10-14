@@ -9,6 +9,7 @@
 namespace Controllers;
 
 //дефолтный контроллер с подключатором запрашиваемой страницы (action)
+
 class DefaultController
 {
     function setRouter($router)
@@ -33,50 +34,31 @@ class DefaultController
 
     function portfolioAction()
     {
-        $connect = mysqli_connect("localhost", "root", "", "learn_project") or die ("Не удалось соединиться с базой данных");
+        $db = \App::getDatabase();
+        $db->connect("learn_project");
 
         $sql = "SELECT * FROM `portfolio_items` where `is_visible` = 1";
-        $result = mysqli_query($connect, $sql);
+        $result = $db->query($sql);
 
-        $portfolios =[];
-
-        while ( $row = mysqli_fetch_assoc($result)){
-            //var_dump( $row);
-            $portfolios[] = $row;
-        }
+        $portfolios = $db->getAllRows($result);
 
         include "../app/views/portfolio.html.php";
     }
 
-    function portfolioShowAction(){
+    function portfolioShowAction()
+    {
         $id = requestVar('id');
 
-        $connect = mysqli_connect("localhost", "root", "", "learn_project") or die ("Не удалось соединиться с базой данных");
+        $db = \App::getDatabase();
 
         $sql = "SELECT * FROM `portfolio_items` where `id` = $id";
-        $result = mysqli_query($connect, $sql);
+        $result = $db->query($sql);
 
-        $portfolio = mysqli_fetch_assoc($result);
+        $portfolio = $db->getOneRow($result);
+
 
         include "../app/views/portfolio_show.html.php";
     }
 
-    function portfolioTestAction()
-    {
-        $portfolios =[
-            [
-                'id'=>1,
-                'name'=>"Первый",
-                'description'=>"Новый проект",
-                'image'=>"http://lorempixel.com/400/200"
-            ],
-            [
-                'id'=>2,
-                'name'=>"Второй",
-                'description'=>"loremPixel",
-                'image'=>"http://lorempixel.com/400/200/sports/1"
-            ],
-        ];
-        include "../app/views/portfolio.html.php";
-    }
+
 }
