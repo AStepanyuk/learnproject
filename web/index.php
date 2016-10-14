@@ -31,13 +31,9 @@ function loadClassFile($name)
 //регистрация функции загрузчика
 spl_autoload_register('loadClassFile');
 
-//указываем массив страниц с парой значений: url + подключатор запрашиваемой страницы (action)
-$routes = include "../app/config/routing.cfg.php";
 
-//создаем объект Router, передаем ему вышеуказанный массив и начинаем обработку запрса из адресной строки
-$router = new \Framework\Routing\Router();
-$router->setConfig($routes);
-$router->start();
+
+App::getRouter()->start();
 
 
 

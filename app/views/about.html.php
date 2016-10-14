@@ -6,5 +6,7 @@
 <?php include "partials/menu.html.php" ?>
 <h1>О нас</h1>
 
+<?php echo $footer_text; ?>
+
 </body>
 </html>

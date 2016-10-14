@@ -27,6 +27,7 @@
 Такой страницы не существует
 <?php } ?>
 
+<?php echo $footer_text; ?>
 
 </body>
 </html>

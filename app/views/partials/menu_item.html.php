@@ -11,7 +11,7 @@ $menuItem = new \Helpers\ViewHelpers\MenuItem();
 
 //установка объекту соответствующие свойства
 $menuItem->setCaption($menuItemConfig ['caption'])
-    ->setHref($this->router->url($route_name))
+    ->setHref(App::getRouter()->url($route_name))
     ->setIcon($icon)
     ->setClass($class);
 

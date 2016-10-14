@@ -6,7 +6,9 @@
 <?php include "partials/menu.html.php" ?>
 <h1>Main page</h1>
 
-<a href="<?php echo $this->router->url("page_about", ['from' => 'main']) ?>">Тут вы можете почитать о нас</a>
+<a href="<?php echo $path("page_about", ['from' => 'main']) ?>">Тут вы можете почитать о нас</a>
+
+<?php echo $footer_text; ?>
 
 </body>
 </html>

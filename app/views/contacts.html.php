@@ -6,5 +6,7 @@
 <?php include "partials/menu.html.php" ?>
 <h1>Контакты</h1>
 
+<?php echo $footer_text; ?>
+
 </body>
 </html>

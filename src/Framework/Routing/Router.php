@@ -82,7 +82,7 @@ class Router
         $className = '\\Controllers\\' . ucfirst($shortName) . 'Controller';
         if (class_exists($className)) {
             $controller = new $className();
-            $controller->setRouter($this);
+            //$controller->setRouter($this);
             return $controller;
         }
         return null;

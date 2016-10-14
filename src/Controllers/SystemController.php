@@ -11,10 +11,7 @@ namespace Controllers;
 //системный контроллер с результатом запрашиваемой страницы
 class SystemController
 {
-    function setRouter($router)
-    {
-        $this->router = $router;
-    }
+
 
     function infoAction()
     {

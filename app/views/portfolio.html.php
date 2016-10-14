@@ -20,7 +20,7 @@
 <!--        <p>-->
 <!--            --><?php //echo $portfolio['description'] ?>
 <!--        </p>-->
-        <a href="<?php echo $this->router->url("page_portfolio_show", ['id'=>$portfolio['id']]) ?>">Подробнее</a>
+        <a href="<?php echo App::getRouter()->url("page_portfolio_show", ['id'=>$portfolio['id']]) ?>">Подробнее</a>
 
 
         <hr>
@@ -29,6 +29,7 @@
 
 <?php } ?>
 
+<?php echo $footer_text; ?>
 
 </body>
 </html>

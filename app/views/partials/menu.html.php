@@ -1,6 +1,6 @@
 <?php
 //текущая страница
-$current_rout_name = $this->router->getCurrentRouteName();
+$current_rout_name = App::getRouter()->getCurrentRouteName();
 
 //массив страниц меню с их параметрами
 $menu = [

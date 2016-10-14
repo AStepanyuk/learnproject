@@ -10,28 +10,26 @@ namespace Controllers;
 
 //дефолтный контроллер с подключатором запрашиваемой страницы (action)
 
+use Framework\View\View;
 use Model\PortfolioStorage;
 
 class DefaultController
 {
-    function setRouter($router)
-    {
-        $this->router = $router;
-    }
+
 
     function homeAction()
     {
-        include "../app/views/home.html.php";
+        \App::getView()->render("home.html.php");
     }
 
     function contactAction()
     {
-        include "../app/views/contacts.html.php";
+        \App::getView()->render("contacts.html.php");
     }
 
     function aboutAction()
     {
-        include "../app/views/about.html.php";
+        \App::getView()->render("about.html.php");
     }
 
     function portfolioAction()
@@ -40,21 +38,10 @@ class DefaultController
 
         $portfolios = $portfolioStorage->getAllVisible();
 
-        include "../app/views/portfolio.html.php";
+        \App::getView()->render("portfolio.html.php", [
+            "porfolio"=> $portfolios]);
     }
 
-    function oldPortfolioAction()
-    {
-        $db = \App::getDatabase();
-        $db->connect("learn_project");
-
-        $sql = "SELECT * FROM `portfolio_items` where `is_visible` = 1";
-        $result = $db->query($sql);
-
-        $portfolios = $db->getAllRows($result);
-
-        include "../app/views/portfolio.html.php";
-    }
 
     function portfolioShowAction()
     {
@@ -63,7 +50,9 @@ class DefaultController
         $portfolio = $portfolioStorage->getById($id);
 
 
-        include "../app/views/portfolio_show.html.php";
+        \App::getView()->render("portfolio_show.html.php", [
+            "portfolio" => $portfolio,
+        ]);
     }
 
 
