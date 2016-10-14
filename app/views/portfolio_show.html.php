@@ -6,9 +6,9 @@
 <?php include "partials/menu.html.php" ?>
 <h1>Портфолио</h1>
 
-<?php foreach ($portfolios as $portfolio) { ?>
+<?php if ($portfolio) {?>
 
-    <div class="portItem">
+    <div class="portItem portLarge">
         <h2>
             <?php echo "# ", " ", $portfolio['id'], " ", $portfolio['name'] ?>
         </h2>
@@ -17,16 +17,14 @@
         </br>
         <img src="<?php echo $portfolio['image'] ?>">
         </br>
-<!--        <p>-->
-<!--            --><?php //echo $portfolio['description'] ?>
-<!--        </p>-->
-        <a href="<?php echo $this->router->url("page_portfolio_show", ['id'=>$portfolio['id']]) ?>">Подробнее</a>
+        <p>
+            <?php echo $portfolio['description'] ?>
+        </p>
 
-
-        <hr>
 
     </div>
-
+<?php } else { ?>
+Такой страницы не существует
 <?php } ?>
 
 

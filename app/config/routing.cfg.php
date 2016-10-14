@@ -13,6 +13,9 @@ return [
     'page_portfolio' => [
         'action' => 'default:portfolio',
         'url' => 'portfolio'
+    ],    'page_portfolio_show' => [
+        'action' => 'default:portfolioShow',
+        'url' => 'portfolio/Show'
     ],
     'page_info' => [
         'action' => 'system:info',

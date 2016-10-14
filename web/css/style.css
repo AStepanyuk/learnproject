@@ -17,3 +17,12 @@ body {
 .menu a.current{
     background: #ffe86c;
 }
+.portItem .date{
+    font-style: italic;
+    color: darkolivegreen;
+}
+
+.portItem img{
+    max-width: 200px;
+    max-height: 200px;
+}
